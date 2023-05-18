@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulatori i Inflacionit në Pagë</title>
+    <script>
+        function llogaritInflacioninNePage(paga, mesatarjaVjetore) {
+            var diferenca = paga * mesatarjaVjetore / 100;
+            return diferenca;
+        }
+
+        function llogaritPagat() {
+            var inflacioni2019 = [3.1, 3.2, 3.3, 3.4, 3.4, 3.0, 2.6, 2.7, 2.4, 2.2, 1.7, 1.2];
+            var inflacioni2020 = [1.5, 1.0, 0.7, 0.3, 0.2, 0.1, -0.1, -0.5, -0.4, -0.2, -0.3, 0.1];
+            var inflacioni2021 = [-0.2, 0.7, 1.2, 1.9, 2.0, 2.4, 3.5, 4.7, 4.9, 5.7, 6.9, 6.7];
+            var inflacioni2022 = [7.1, 7.5, 10.0, 11.2, 12.5, 14.1, 14.2, 13.0, 12.7, 12.7, 11.6, 12.1];
+            var inflacioni2023 = [11.9, 11.0, 7.6, 6.3];
+
+            var paga2019 = parseFloat(document.getElementById('paga-2019').value);
+            var paga2020 = parseFloat(document.getElementById('paga-2020').value);
+            var paga2021 = parseFloat(document.getElementById('paga-2021').value);
+            var paga2022 = parseFloat(document.getElementById('paga-2022').value);
+            var paga2023 = parseFloat(document.getElementById('paga-2023').value);
+
+            var rezultati = document.getElementById('rezultati');
+
+            rezultati.innerHTML = '';
+
+            var mesatarja2019 = 2.7; // Ndrysho vlerën e mesatares vjetore për vitin 2019
+            rezultati.innerHTML += '2019:<br>';
+            rezultati.innerHTML += 'Mesatarja vjetore: ' + mesatarja2019.toFixed(2) + '%<br>';
+            rezultati.innerHTML += 'Diferenca e inflacionit në pagë:<br>';
+            var totali2019 = 0;
+            for (var i = 0; i < inflacioni2019.length; i++) {
+                var diferenca = llogaritInflacioninNePage(paga2019, inflacioni2019[i]);
+                totali2019 += diferenca;
+                rezultati.innerHTML += 'Muaji ' + (i + 1) + ': ' + diferenca.toFixed(2) + ' €<br>';
+            }
+            rezultati.innerHTML += 'Totali: ' + totali2019.toFixed(2) + ' €<br><br>';
+
+            var mesatarja2020 = 0.2; // Ndrysho vlerën e mesatares vjetore për vitin 2020
+            rezultati.innerHTML += '2020:<br>';
+            rezultati.innerHTML += 'Mesatarja vjetore: ' + mesatarja2020.toFixed(2) + '%<br>';
+            rezultati.innerHTML += 'Diferenca e inflacionit në pagë:<br>';
+            var totali2020 = 0;
+            for (var i = 0; i < inflacioni2020.length; i++) {
+                var diferenca = llogaritInflacioninNePage(paga2020, inflacioni2020[i]);
+                totali2020 += diferenca;
+                rezultati.innerHTML += 'Muaji ' + (i + 1) + ': ' + diferenca.toFixed(2) + ' €<br>';
+            }
+            rezultati.innerHTML += 'Totali: ' + totali2020.toFixed(2) + ' €<br><br>';
+
+            var mesatarja2021 = 3.4; // Ndrysho vlerën e mesatares vjetore për vitin 2021
+            rezultati.innerHTML += '2021:<br>';
+            rezultati.innerHTML += 'Mesatarja vjetore: ' + mesatarja2021.toFixed(2) + '%<br>';
+            rezultati.innerHTML += 'Diferenca e inflacionit në pagë:<br>';
+            var totali2021 = 0;
+            for (var i = 0; i < inflacioni2021.length; i++) {
+                var diferenca = llogaritInflacioninNePage(paga2021, inflacioni2021[i]);
+                totali2021 += diferenca;
+                rezultati.innerHTML += 'Muaji ' + (i + 1) + ': ' + diferenca.toFixed(2) + ' €<br>';
+            }
+            rezultati.innerHTML += 'Totali: ' + totali2021.toFixed(2) + ' €<br><br>';
+
+            var mesatarja2022 = 11.6; // Ndrysho vlerën e mesatares vjetore për vitin 2022
+            rezultati.innerHTML += '2022:<br>';
+            rezultati.innerHTML += 'Mesatarja vjetore: ' + mesatarja2022.toFixed(2) + '%<br>';
+            rezultati.innerHTML += 'Diferenca e inflacionit në pagë:<br>';
+            var totali2022 = 0;
+            for (var i = 0; i < inflacioni2022.length; i++) {
+                var diferenca = llogaritInflacioninNePage(paga2022, inflacioni2022[i]);
+                totali2022 += diferenca;
+                rezultati.innerHTML += 'Muaji ' + (i + 1) + ': ' + diferenca.toFixed(2) + ' €<br>';
+            }
+            rezultati.innerHTML += 'Totali: ' + totali2022.toFixed(2) + ' €<br><br>';
+
+            var mesatarja2023 = 9.2; // Ndrysho vlerën e mesatares vjetore për vitin 2023
+            rezultati.innerHTML += '2023:<br>';
+            rezultati.innerHTML += 'Mesatarja vjetore: ' + mesatarja2023.toFixed(2) + '%<br>';
+            rezultati.innerHTML += 'Diferenca e inflacionit në pagë:<br>';
+            var totali2023 = 0;
+            for (var i = 0; i < inflacioni2023.length; i++) {
+                var diferenca = llogaritInflacioninNePage(paga2023, inflacioni2023[i]);
+                totali2023 += diferenca;
+                rezultati.innerHTML += 'Muaji ' + (i + 1) + ': ' + diferenca.toFixed(2) + ' €<br>';
+            }
+            rezultati.innerHTML += 'Totali: ' + totali2023.toFixed(2) + ' €<br><br>';
+        }
+    </script>
+</head>
+<body>
+    <h1>Kalkulatori i Inflacionit në Pagë</h1>
+    <h2>Vendos pagat për secilin vit</h2>
+    <div>
+        <label for="paga-2019">Paga për vitin 2019:</label>
+        <input type="number" id="paga-2019" step="0.01">
+    </div>
+    <br>
+    <div>
+        <label for="paga-2020">Paga për vitin 2020:</label>
+        <input type="number" id="paga-2020" step="0.01">
+    </div>
+    <br>
+    <div>
+        <label for="paga-2021">Paga për vitin 2021:</label>
+        <input type="number" id="paga-2021" step="0.01">
+    </div>
+    <br>
+    <div>
+        <label for="paga-2022">Paga për vitin 2022:</label>
+        <input type="number" id="paga-2022" step="0.01">
+    </div>
+    <br>
+    <div>
+        <label for="paga-2023">Paga për vitin 2023:</label>
+        <input type="number" id="paga-2023" step="0.01">
+    </div>
+    <br>
+    <button onclick="llogaritPagat()">Llogarit Pagat</button>
+    <br><br>
+    <div id="rezultati"></div>
+</body>
+</html>
